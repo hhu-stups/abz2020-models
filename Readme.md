@@ -26,8 +26,11 @@ The graphical visualizations were constructed using a new plugin (VisB) which
   helped uncover errors and transforms our model into an executable, interactive reference specification which
   can be examined by users without formal background.
   
+## Screenshot of Event-B Model in Rodin
+
+![Main ProB for ROdin Window](https://github.com/hhu-stups/abz2020-models/blob/master/Images/rodin/animation.png)
   
-## Screenshot of ProB2UI
+## Screenshot of Classical B Model in ProB2UI
 
 ![Main ProB2UI Window](https://github.com/hhu-stups/abz2020-models/blob/master/Images/prob2ui/main_window.png)
 
@@ -36,6 +39,8 @@ The graphical visualizations were constructed using a new plugin (VisB) which
 
 ## Trace 7 from the Case Study Specification
 
+Below we show a graphical rendering of Trace 7 from the case study specification
+as replayed with ProB and visualized with VisB.
 
 ![Step1](https://github.com/hhu-stups/abz2020-models/blob/master/Images/Trace7/Step1.png)
 ![Step2](https://github.com/hhu-stups/abz2020-models/blob/master/Images/Trace7/Step2.png)
