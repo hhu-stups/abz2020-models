@@ -25,3 +25,38 @@ Before conducting the proof, we have validated our models using model checking a
 The graphical visualizations were constructed using a new plugin (VisB) which
   helped uncover errors and transforms our model into an executable, interactive reference specification which
   can be examined by users without formal background.
+  
+  
+## Screenshot of ProB2UI
+
+![Main ProB2UI Window](https://github.com/hhu-stups/abz2020-models/blob/master/Images/prob2ui/main_window.png)
+
+![VisB Window within ProB2UI](https://github.com/hhu-stups/abz2020-models/blob/master/Images/prob2ui/visb_window.png)
+
+
+## Trace 7 from the Case Study Specification
+
+
+![Step1](https://github.com/hhu-stups/abz2020-models/blob/master/Images/Trace7/Step1.png)
+![Step2](https://github.com/hhu-stups/abz2020-models/blob/master/Images/Trace7/Step2.png)
+![Step3](https://github.com/hhu-stups/abz2020-models/blob/master/Images/Trace7/Step3.png)
+![Step4](https://github.com/hhu-stups/abz2020-models/blob/master/Images/Trace7/Step4.png)
+![Step5](https://github.com/hhu-stups/abz2020-models/blob/master/Images/Trace7/Step5.png)
+![Step6](https://github.com/hhu-stups/abz2020-models/blob/master/Images/Trace7/Step6.png)
+![Step7](https://github.com/hhu-stups/abz2020-models/blob/master/Images/Trace7/Step7.png)
+![Step8](https://github.com/hhu-stups/abz2020-models/blob/master/Images/Trace7/Step8.png)
+![Step9](https://github.com/hhu-stups/abz2020-models/blob/master/Images/Trace7/Step9.png)
+![Step10](https://github.com/hhu-stups/abz2020-models/blob/master/Images/Trace7/Step10.png)
+![Step11](https://github.com/hhu-stups/abz2020-models/blob/master/Images/Trace7/Step11.png)
+![Step12](https://github.com/hhu-stups/abz2020-models/blob/master/Images/Trace7/Step12.png)
+![Step13](https://github.com/hhu-stups/abz2020-models/blob/master/Images/Trace7/Step13.png)
+![Step14](https://github.com/hhu-stups/abz2020-models/blob/master/Images/Trace7/Step14.png)
+![Step15](https://github.com/hhu-stups/abz2020-models/blob/master/Images/Trace7/Step15.png)
+![Step16](https://github.com/hhu-stups/abz2020-models/blob/master/Images/Trace7/Step16.png)
+![Step17](https://github.com/hhu-stups/abz2020-models/blob/master/Images/Trace7/Step17.png)
+![Step18](https://github.com/hhu-stups/abz2020-models/blob/master/Images/Trace7/Step18.png)
+![Step19](https://github.com/hhu-stups/abz2020-models/blob/master/Images/Trace7/Step19.png)
+![Step20](https://github.com/hhu-stups/abz2020-models/blob/master/Images/Trace7/Step20.png)
+![Step21](https://github.com/hhu-stups/abz2020-models/blob/master/Images/Trace7/Step21.png)
+![Step22](https://github.com/hhu-stups/abz2020-models/blob/master/Images/Trace7/Step22.png)
+![Step23](https://github.com/hhu-stups/abz2020-models/blob/master/Images/Trace7/Step23.png)
