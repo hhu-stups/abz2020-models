@@ -7,76 +7,289 @@
       "description": "",
       "location": "GenericTimers.mch",
       "lastUsedPreferenceName": "default",
-      "ltlFormulas": [],
+      "temporalFormulas": [],
       "ltlPatterns": [],
       "symbolicCheckingFormulas": [],
       "symbolicAnimationFormulas": [],
       "testCases": [],
       "traces": [],
-      "modelcheckingItems": []
+      "modelcheckingItems": [],
+      "proofObligationItems": [],
+      "simulations": [],
+      "visBVisualisation": null,
+      "historyChartItems": [],
+      "dotVisualizationItems": {},
+      "tableVisualizationItems": {}
     },
     {
       "name": "Sensors",
       "description": "",
       "location": "Sensors.mch",
       "lastUsedPreferenceName": "default",
-      "ltlFormulas": [],
+      "temporalFormulas": [],
       "ltlPatterns": [],
       "symbolicCheckingFormulas": [],
       "symbolicAnimationFormulas": [],
       "testCases": [],
       "traces": [],
-      "modelcheckingItems": []
+      "modelcheckingItems": [],
+      "proofObligationItems": [],
+      "simulations": [],
+      "visBVisualisation": null,
+      "historyChartItems": [],
+      "dotVisualizationItems": {},
+      "tableVisualizationItems": {}
     },
     {
       "name": "PitmanController_TIME_MC_v4",
       "description": "",
       "location": "PitmanController_TIME_MC_v4.mch",
       "lastUsedPreferenceName": "default",
-      "ltlFormulas": [],
+      "temporalFormulas": [
+        {
+          "type": "LTL",
+          "id": null,
+          "description": "",
+          "code": "G not(deadlock(ENV_Turn_EngineOn, ENV_Turn_EngineOff))",
+          "expectedResult": true,
+          "selected": true
+        },
+        {
+          "type": "LTL",
+          "id": null,
+          "description": "",
+          "code": "G e(ENV_Hazard_blinking)",
+          "expectedResult": true,
+          "selected": true
+        },
+        {
+          "type": "LTL",
+          "id": null,
+          "description": "",
+          "code": "G not (deadlock(ENV_Pitman_DirectionBlinking, ENV_Pitman_Reset_to_Neutral, \nENV_Pitman_Tip_blinking_start ) )\n",
+          "expectedResult": true,
+          "selected": true
+        },
+        {
+          "type": "LTL",
+          "id": null,
+          "description": "",
+          "code": "G not (deadlock(RTIME_BlinkerOn, RTIME_BlinkerOff, RTIME_Nothing , RTIME_Tip_blinking_Timeout))",
+          "expectedResult": true,
+          "selected": true
+        },
+        {
+          "type": "LTL",
+          "id": null,
+          "description": "",
+          "code": "G controller(ENV_Turn_EngineOn, ENV_Turn_EngineOff)",
+          "expectedResult": true,
+          "selected": true
+        },
+        {
+          "type": "LTL",
+          "id": null,
+          "description": "",
+          "code": "G deterministic(RTIME_BlinkerOn, RTIME_BlinkerOff, RTIME_Nothing)",
+          "expectedResult": true,
+          "selected": true
+        },
+        {
+          "type": "LTL",
+          "id": null,
+          "description": "",
+          "code": "G e(ENV_Pitman_Tip_blinking_start)",
+          "expectedResult": true,
+          "selected": true
+        },
+        {
+          "type": "LTL",
+          "id": null,
+          "description": "",
+          "code": "G e(ENV_Pitman_DirectionBlinking)",
+          "expectedResult": true,
+          "selected": true
+        }
+      ],
       "ltlPatterns": [],
       "symbolicCheckingFormulas": [],
       "symbolicAnimationFormulas": [],
       "testCases": [],
       "traces": [
-        "traces/PitmanController_TIME_v3_Trace7.prob2trace",
-        "traces/PitmanController_TIME_MC_v4_Trace7.prob2trace"
+        {
+          "id": null,
+          "location": "traces/PitmanController_TIME_MC_v4_Trace7.prob2trace",
+          "selected": true
+        }
       ],
       "modelcheckingItems": [
         {
-          "checked": "SUCCESS",
-          "options": {
-            "options": [
-              "FIND_DEADLOCKS",
-              "FIND_INVARIANT_VIOLATIONS",
-              "INSPECT_EXISTING_NODES"
-            ]
-          },
+          "searchStrategy": "MIXED_BF_DF",
+          "options": [
+            "FIND_DEADLOCKS",
+            "FIND_INVARIANT_VIOLATIONS"
+          ],
           "shouldExecute": true
         }
-      ]
+      ],
+      "proofObligationItems": [],
+      "simulations": [
+        {
+          "path": "Simulation_MC/PitmanController_v4_simulation.json",
+          "simulationItems": [
+            {
+              "id": null,
+              "type": "HYPOTHESIS_TEST",
+              "information": {
+                "SIGNIFICANCE": 0.001,
+                "PROBABILITY": 0.999999,
+                "STARTING_PREDICATE": "active_blinkers = {left_blink}",
+                "MAX_STEPS_BEFORE_PROPERTY": 0,
+                "EXECUTIONS": 10000,
+                "PREDICATE": "blinkLeft = 100",
+                "ENDING_TIME": 100,
+                "HYPOTHESIS_CHECKING_TYPE": "LEFT_TAILED",
+                "CHECKING_TYPE": "PREDICATE_EVENTUALLY"
+              }
+            },
+            {
+              "id": null,
+              "type": "HYPOTHESIS_TEST",
+              "information": {
+                "SIGNIFICANCE": 0.001,
+                "PROBABILITY": 0.999999,
+                "STARTING_PREDICATE": "active_blinkers = {left_blink}",
+                "MAX_STEPS_BEFORE_PROPERTY": 0,
+                "EXECUTIONS": 10000,
+                "PREDICATE": "blinkLeft = 100",
+                "ENDING_TIME": 500,
+                "HYPOTHESIS_CHECKING_TYPE": "LEFT_TAILED",
+                "CHECKING_TYPE": "PREDICATE_EVENTUALLY"
+              }
+            },
+            {
+              "id": null,
+              "type": "MONTE_CARLO_SIMULATION",
+              "information": {
+                "ENDING_PREDICATE": "blinkLeft = 100",
+                "STARTING_PREDICATE": "active_blinkers = {left_blink}",
+                "MAX_STEPS_BEFORE_PROPERTY": 0,
+                "EXECUTIONS": 2
+              }
+            },
+            {
+              "id": null,
+              "type": "MONTE_CARLO_SIMULATION",
+              "information": {
+                "STARTING_PREDICATE": "active_blinkers = {left_blink}",
+                "MAX_STEPS_BEFORE_PROPERTY": 0,
+                "EXECUTIONS": 2,
+                "ENDING_TIME": 100
+              }
+            },
+            {
+              "id": null,
+              "type": "HYPOTHESIS_TEST",
+              "information": {
+                "ENDING_PREDICATE": "card(active_blinkers) > 0",
+                "SIGNIFICANCE": 0.001,
+                "PROBABILITY": 0.99999,
+                "STARTING_PREDICATE": "engineOn = TRUE",
+                "MAX_STEPS_BEFORE_PROPERTY": 0,
+                "EXECUTIONS": 10000,
+                "PREDICATE": "blinkLeft = 0 & blinkRight = 0",
+                "HYPOTHESIS_CHECKING_TYPE": "LEFT_TAILED",
+                "CHECKING_TYPE": "PREDICATE_INVARIANT"
+              }
+            },
+            {
+              "id": null,
+              "type": "ESTIMATION",
+              "information": {
+                "STARTING_PREDICATE": "active_blinkers = {left_blink}",
+                "MAX_STEPS_BEFORE_PROPERTY": 0,
+                "EXECUTIONS": 10000,
+                "PREDICATE": "blinkLeft = 100",
+                "ESTIMATION_TYPE": "MEAN",
+                "ENDING_TIME": 100,
+                "DESIRED_VALUE": 0.999999,
+                "CHECKING_TYPE": "PREDICATE_EVENTUALLY",
+                "EPSILON": 0.001
+              }
+            },
+            {
+              "id": null,
+              "type": "ESTIMATION",
+              "information": {
+                "STARTING_PREDICATE": "active_blinkers = {left_blink}",
+                "MAX_STEPS_BEFORE_PROPERTY": 0,
+                "EXECUTIONS": 10000,
+                "PREDICATE": "blinkLeft = 100",
+                "ESTIMATION_TYPE": "MEAN",
+                "ENDING_TIME": 500,
+                "DESIRED_VALUE": 0.999999,
+                "CHECKING_TYPE": "PREDICATE_EVENTUALLY",
+                "EPSILON": 0.001
+              }
+            },
+            {
+              "id": null,
+              "type": "ESTIMATION",
+              "information": {
+                "ENDING_PREDICATE": "card(active_blinkers) > 0",
+                "STARTING_PREDICATE": "engineOn = TRUE",
+                "MAX_STEPS_BEFORE_PROPERTY": 0,
+                "EXECUTIONS": 10000,
+                "PREDICATE": "blinkLeft = 0 & blinkRight = 0",
+                "ESTIMATION_TYPE": "MEAN",
+                "DESIRED_VALUE": 0.999999,
+                "CHECKING_TYPE": "PREDICATE_INVARIANT",
+                "EPSILON": 0.001
+              }
+            }
+          ]
+        },
+        {
+          "path": "Simulation_MC/PitmanController_v4_simulation_interactive.json",
+          "simulationItems": []
+        }
+      ],
+      "visBVisualisation": "Visualisation/blinking_visb_v4.json",
+      "historyChartItems": [],
+      "dotVisualizationItems": {},
+      "tableVisualizationItems": {}
     },
     {
       "name": "PitmanController_TIME_v4",
       "description": "",
       "location": "PitmanController_TIME_v4.mch",
       "lastUsedPreferenceName": "default",
-      "ltlFormulas": [],
+      "temporalFormulas": [],
       "ltlPatterns": [],
       "symbolicCheckingFormulas": [],
       "symbolicAnimationFormulas": [],
       "testCases": [],
       "traces": [
-        "traces/PitmanController_TIME_v3_Trace7.prob2trace"
+        {
+          "id": null,
+          "location": "traces/PitmanController_TIME_v3_Trace7.prob2trace",
+          "selected": true
+        }
       ],
-      "modelcheckingItems": []
+      "modelcheckingItems": [],
+      "proofObligationItems": [],
+      "simulations": [],
+      "visBVisualisation": null,
+      "historyChartItems": [],
+      "dotVisualizationItems": {},
+      "tableVisualizationItems": {}
     },
     {
       "name": "BlinkLamps_v3",
       "description": "",
       "location": "BlinkLamps_v3.mch",
       "lastUsedPreferenceName": "default",
-      "ltlFormulas": [],
+      "temporalFormulas": [],
       "ltlPatterns": [],
       "symbolicCheckingFormulas": [],
       "symbolicAnimationFormulas": [],
@@ -84,24 +297,27 @@
       "traces": [],
       "modelcheckingItems": [
         {
-          "checked": "NOT_CHECKED",
-          "options": {
-            "options": [
-              "FIND_DEADLOCKS",
-              "FIND_INVARIANT_VIOLATIONS",
-              "INSPECT_EXISTING_NODES"
-            ]
-          },
+          "searchStrategy": "MIXED_BF_DF",
+          "options": [
+            "FIND_DEADLOCKS",
+            "FIND_INVARIANT_VIOLATIONS"
+          ],
           "shouldExecute": true
         }
-      ]
+      ],
+      "proofObligationItems": [],
+      "simulations": [],
+      "visBVisualisation": null,
+      "historyChartItems": [],
+      "dotVisualizationItems": {},
+      "tableVisualizationItems": {}
     },
     {
       "name": "PitmanController_v6",
       "description": "",
       "location": "PitmanController_v6.mch",
       "lastUsedPreferenceName": "default",
-      "ltlFormulas": [],
+      "temporalFormulas": [],
       "ltlPatterns": [],
       "symbolicCheckingFormulas": [],
       "symbolicAnimationFormulas": [],
@@ -109,18 +325,31 @@
       "traces": [],
       "modelcheckingItems": [
         {
-          "checked": "NOT_CHECKED",
-          "options": {
-            "options": [
-              "FIND_DEADLOCKS",
-              "FIND_INVARIANT_VIOLATIONS",
-              "INSPECT_EXISTING_NODES"
-            ]
-          },
+          "searchStrategy": "MIXED_BF_DF",
+          "options": [
+            "FIND_DEADLOCKS",
+            "FIND_INVARIANT_VIOLATIONS"
+          ],
           "shouldExecute": true
         }
-      ]
+      ],
+      "proofObligationItems": [],
+      "simulations": [],
+      "visBVisualisation": null,
+      "historyChartItems": [],
+      "dotVisualizationItems": {},
+      "tableVisualizationItems": {}
     }
   ],
-  "preferences": []
+  "requirements": [],
+  "preferences": [],
+  "metadata": {
+    "fileType": "Project",
+    "formatVersion": 37,
+    "savedAt": "2023-08-23T14:30:54.890904Z",
+    "creator": "User",
+    "proB2KernelVersion": "4.12.2",
+    "proBCliVersion": null,
+    "modelName": null
+  }
 }
