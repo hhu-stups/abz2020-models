@@ -235,6 +235,16 @@
           "id": "Trace_ELS5_6",
           "location": "traces/Trace_ELS5_6.prob2trace",
           "selected": true
+        },
+        {
+          "id": "Trace_ELS11_3",
+          "location": "traces/Trace_ELS11_3.prob2trace",
+          "selected": true
+        },
+        {
+          "id": "Trace_ELS11_4",
+          "location": "traces/Trace_ELS11_4.prob2trace",
+          "selected": true
         }
       ],
       "modelcheckingItems": [
@@ -549,7 +559,7 @@
       "validationObligations": [
         {
           "machine": "PitmanController_TIME_MC_v4",
-          "expression": "Trace_ELS1 & Trace_ELS2 & Trace_ELS3_1 & Trace_ELS3_2 & Trace_ELS3_3 & Trace_ELS4 & Trace_ELS5_1 & Trace_ELS5_2 & Trace_ELS5_3 & Trace_ELS5_4 & Trace_ELS5_5 & Trace_ELS5_6 & Trace_ELS7_1 & Trace_ELS7_2 & Trace_ELS7_3 & Trace_ELS7_4 & Trace_ELS8 & Trace_ELS11_1 & Trace_ELS11_2 & Trace_ELS12_1 & Trace_ELS12_2 & Trace_ELS13_1 & Trace_ELS13_2"
+          "expression": "Trace_ELS1 & Trace_ELS2 & Trace_ELS3_1 & Trace_ELS3_2 & Trace_ELS3_3 & Trace_ELS4 & Trace_ELS5_1 & Trace_ELS5_2 & Trace_ELS5_3 & Trace_ELS5_4 & Trace_ELS5_5 & Trace_ELS5_6 & Trace_ELS7_1 & Trace_ELS7_2 & Trace_ELS7_3 & Trace_ELS7_4 & Trace_ELS8 & Trace_ELS11_1 & Trace_ELS11_2 & Trace_ELS11_3 & Trace_ELS11_4 & Trace_ELS12_1 & Trace_ELS12_2 & Trace_ELS13_1 & Trace_ELS13_2"
         }
       ]
     },
@@ -561,7 +571,7 @@
       "validationObligations": [
         {
           "machine": "PitmanController_TIME_MC_v4",
-          "expression": "Trace_ELS11_1 & Trace_ELS11_2"
+          "expression": "Trace_ELS11_1 & Trace_ELS11_2 & Trace_ELS11_3 & Trace_ELS11_4"
         }
       ]
     },
@@ -666,7 +676,7 @@
   "metadata": {
     "fileType": "Project",
     "formatVersion": 37,
-    "savedAt": "2023-08-24T10:00:58.753867Z",
+    "savedAt": "2023-08-24T10:05:50.010018Z",
     "creator": "User",
     "proB2KernelVersion": "4.12.2",
     "proBCliVersion": null,
