@@ -175,6 +175,36 @@
           "id": "Trace_ELS13_2",
           "location": "traces/Trace_ELS13_2.prob2trace",
           "selected": true
+        },
+        {
+          "id": "Trace_ELS11_1",
+          "location": "traces/Trace_ELS11_1.prob2trace",
+          "selected": true
+        },
+        {
+          "id": "Trace_ELS11_2",
+          "location": "traces/Trace_ELS11_2.prob2trace",
+          "selected": true
+        },
+        {
+          "id": "Trace_ELS7_1",
+          "location": "traces/Trace_ELS7_1.prob2trace",
+          "selected": true
+        },
+        {
+          "id": "Trace_ELS7_2",
+          "location": "traces/Trace_ELS7_2.prob2trace",
+          "selected": true
+        },
+        {
+          "id": "Trace_ELS7_3",
+          "location": "traces/Trace_ELS7_3.prob2trace",
+          "selected": true
+        },
+        {
+          "id": "Trace_ELS7_4",
+          "location": "traces/Trace_ELS7_4.prob2trace",
+          "selected": true
         }
       ],
       "modelcheckingItems": [
@@ -457,7 +487,12 @@
       "introducedAt": "PitmanController_TIME_MC_v4",
       "type": "FUNCTIONAL",
       "text": "If the driver activates the pitman arm during the three flashing cycles of tip-blinking for the same direction again, only the current flashing cycle is completed and then the new command is processed (either three flashing cycles due to tip-blinking or constant direction blinking).",
-      "validationObligations": []
+      "validationObligations": [
+        {
+          "machine": "PitmanController_TIME_MC_v4",
+          "expression": "Trace_ELS7_1 & Trace_ELS7_2 & Trace_ELS7_3 & Trace_ELS7_4"
+        }
+      ]
     },
     {
       "name": "ELS8",
@@ -483,7 +518,12 @@
       "introducedAt": "PitmanController_TIME_MC_v4",
       "type": "FUNCTIONAL",
       "text": "A flashing cycle (bright to dark) must always be completed, before a new flashing cycle can occur.",
-      "validationObligations": []
+      "validationObligations": [
+        {
+          "machine": "PitmanController_TIME_MC_v4",
+          "expression": "Trace_ELS11_1 & Trace_ELS11_2"
+        }
+      ]
     },
     {
       "name": "ELS12",
@@ -586,7 +626,7 @@
   "metadata": {
     "fileType": "Project",
     "formatVersion": 37,
-    "savedAt": "2023-08-24T08:57:06.827012Z",
+    "savedAt": "2023-08-24T09:28:53.645758Z",
     "creator": "User",
     "proB2KernelVersion": "4.12.2",
     "proBCliVersion": null,
