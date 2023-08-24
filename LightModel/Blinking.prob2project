@@ -205,6 +205,36 @@
           "id": "Trace_ELS7_4",
           "location": "traces/Trace_ELS7_4.prob2trace",
           "selected": true
+        },
+        {
+          "id": "Trace_ELS5_1",
+          "location": "traces/Trace_ELS5_1.prob2trace",
+          "selected": true
+        },
+        {
+          "id": "Trace_ELS5_2",
+          "location": "traces/Trace_ELS5_2.prob2trace",
+          "selected": true
+        },
+        {
+          "id": "Trace_ELS5_3",
+          "location": "traces/Trace_ELS5_3.prob2trace",
+          "selected": true
+        },
+        {
+          "id": "Trace_ELS5_4",
+          "location": "traces/Trace_ELS5_4.prob2trace",
+          "selected": true
+        },
+        {
+          "id": "Trace_ELS5_5",
+          "location": "traces/Trace_ELS5_5.prob2trace",
+          "selected": true
+        },
+        {
+          "id": "Trace_ELS5_6",
+          "location": "traces/Trace_ELS5_6.prob2trace",
+          "selected": true
         }
       ],
       "modelcheckingItems": [
@@ -480,7 +510,12 @@
       "introducedAt": "PitmanController_TIME_MC_v4",
       "type": "FUNCTIONAL",
       "text": "Direction blinking right and tip-blinking right: Analogous to the left side (see Req. ELS-1 to Req. ELS-4).",
-      "validationObligations": []
+      "validationObligations": [
+        {
+          "machine": "PitmanController_TIME_MC_v4",
+          "expression": "Trace_ELS5_1 & Trace_ELS5_2 & Trace_ELS5_3 & Trace_ELS5_4 & Trace_ELS5_5 & Trace_ELS5_6"
+        }
+      ]
     },
     {
       "name": "ELS7",
@@ -511,7 +546,12 @@
       "introducedAt": "PitmanController_TIME_MC_v4",
       "type": "FUNCTIONAL",
       "text": "The duration of a flashing cycle is 1 second.",
-      "validationObligations": []
+      "validationObligations": [
+        {
+          "machine": "PitmanController_TIME_MC_v4",
+          "expression": "Trace_ELS1 & Trace_ELS2 & Trace_ELS3_1 & Trace_ELS3_2 & Trace_ELS3_3 & Trace_ELS4 & Trace_ELS5_1 & Trace_ELS5_2 & Trace_ELS5_3 & Trace_ELS5_4 & Trace_ELS5_5 & Trace_ELS5_6 & Trace_ELS7_1 & Trace_ELS7_2 & Trace_ELS7_3 & Trace_ELS7_4 & Trace_ELS8 & Trace_ELS11_1 & Trace_ELS11_2 & Trace_ELS12_1 & Trace_ELS12_2 & Trace_ELS13_1 & Trace_ELS13_2"
+        }
+      ]
     },
     {
       "name": "ELS11",
@@ -626,7 +666,7 @@
   "metadata": {
     "fileType": "Project",
     "formatVersion": 37,
-    "savedAt": "2023-08-24T09:28:53.645758Z",
+    "savedAt": "2023-08-24T10:00:58.753867Z",
     "creator": "User",
     "proB2KernelVersion": "4.12.2",
     "proBCliVersion": null,

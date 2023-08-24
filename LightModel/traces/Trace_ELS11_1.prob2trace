@@ -110,13 +110,7 @@
         "curDeadlines"
       ],
       "preds": [],
-      "postconditions": [
-        {
-          "operation": "ENV_Pitman_DirectionBlinking",
-          "predicate": "newPos = Upward7",
-          "kind": "DISABLEDNESS"
-        }
-      ],
+      "postconditions": [],
       "description": ""
     },
     {
@@ -140,7 +134,12 @@
         "curDeadlines"
       ],
       "preds": [],
-      "postconditions": [],
+      "postconditions": [
+        {
+          "predicate": "blinkLeft = 100 & blinkRight = 0",
+          "kind": "PREDICATE"
+        }
+      ],
       "description": ""
     }
   ],
