@@ -155,6 +155,26 @@
           "id": "Trace_ELS8",
           "location": "traces/Trace_ELS8.prob2trace",
           "selected": true
+        },
+        {
+          "id": "Trace_ELS12_1",
+          "location": "traces/Trace_ELS12_1.prob2trace",
+          "selected": true
+        },
+        {
+          "id": "Trace_ELS12_2",
+          "location": "traces/Trace_ELS12_2.prob2trace",
+          "selected": true
+        },
+        {
+          "id": "Trace_ELS13_1",
+          "location": "traces/Trace_ELS13_1.prob2trace",
+          "selected": true
+        },
+        {
+          "id": "Trace_ELS13_2",
+          "location": "traces/Trace_ELS13_2.prob2trace",
+          "selected": true
         }
       ],
       "modelcheckingItems": [
@@ -470,14 +490,24 @@
       "introducedAt": "PitmanController_TIME_MC_v4",
       "type": "FUNCTIONAL",
       "text": "When hazard warning is deactivated again, the pitman arm is in position “direction blinking left” or “direction blinking right” ignition is On, the direction blinking cycle should be started (see Req. ELS-1).",
-      "validationObligations": []
+      "validationObligations": [
+        {
+          "machine": "PitmanController_TIME_MC_v4",
+          "expression": "Trace_ELS12_1 & Trace_ELS12_2"
+        }
+      ]
     },
     {
       "name": "ELS13",
       "introducedAt": "PitmanController_TIME_MC_v4",
       "type": "FUNCTIONAL",
       "text": "If the warning light is activated, any tip-blinking will be ignored or stopped if it was started before.",
-      "validationObligations": []
+      "validationObligations": [
+        {
+          "machine": "PitmanController_TIME_MC_v4",
+          "expression": "Trace_ELS13_1 & Trace_ELS13_2"
+        }
+      ]
     },
     {
       "name": "REQ-ENGINE",
@@ -556,7 +586,7 @@
   "metadata": {
     "fileType": "Project",
     "formatVersion": 37,
-    "savedAt": "2023-08-24T08:41:44.095041Z",
+    "savedAt": "2023-08-24T08:57:06.827012Z",
     "creator": "User",
     "proB2KernelVersion": "4.12.2",
     "proBCliVersion": null,
