@@ -48,65 +48,65 @@
       "temporalFormulas": [
         {
           "type": "LTL",
-          "id": null,
-          "description": "",
-          "code": "G not(deadlock(ENV_Turn_EngineOn, ENV_Turn_EngineOff))",
-          "expectedResult": true,
-          "selected": true
-        },
-        {
-          "type": "LTL",
-          "id": null,
-          "description": "",
-          "code": "G e(ENV_Hazard_blinking)",
-          "expectedResult": true,
-          "selected": true
-        },
-        {
-          "type": "LTL",
-          "id": null,
-          "description": "",
-          "code": "G not (deadlock(ENV_Pitman_DirectionBlinking, ENV_Pitman_Reset_to_Neutral, \nENV_Pitman_Tip_blinking_start ) )\n",
-          "expectedResult": true,
-          "selected": true
-        },
-        {
-          "type": "LTL",
-          "id": null,
-          "description": "",
+          "id": "LTL_TIME1",
+          "description": "Time can always pass, either during a cycle or not",
           "code": "G not (deadlock(RTIME_BlinkerOn, RTIME_BlinkerOff, RTIME_Nothing , RTIME_Tip_blinking_Timeout))",
           "expectedResult": true,
           "selected": true
         },
         {
           "type": "LTL",
-          "id": null,
-          "description": "",
-          "code": "G controller(ENV_Turn_EngineOn, ENV_Turn_EngineOff)",
-          "expectedResult": true,
-          "selected": true
-        },
-        {
-          "type": "LTL",
-          "id": null,
-          "description": "",
+          "id": "LTL_TIME2",
+          "description": "Time can always pass, either during a cycle or not",
           "code": "G deterministic(RTIME_BlinkerOn, RTIME_BlinkerOff, RTIME_Nothing)",
           "expectedResult": true,
           "selected": true
         },
         {
           "type": "LTL",
-          "id": null,
-          "description": "",
-          "code": "G e(ENV_Pitman_Tip_blinking_start)",
+          "id": "LTL_ENGINE1",
+          "description": "The driver must always be able to turn on or turn off the engine",
+          "code": "G not(deadlock(ENV_Turn_EngineOn, ENV_Turn_EngineOff))",
           "expectedResult": true,
           "selected": true
         },
         {
           "type": "LTL",
-          "id": null,
-          "description": "",
+          "id": "LTL_ENGINE2",
+          "description": "The driver must always be able to turn on or turn off the engine",
+          "code": "G controller(ENV_Turn_EngineOn, ENV_Turn_EngineOff)",
+          "expectedResult": true,
+          "selected": true
+        },
+        {
+          "type": "LTL",
+          "id": "LTL_PITMAN1",
+          "description": "The driver must always be able to change the pitman controller's position",
+          "code": "G not (deadlock(ENV_Pitman_DirectionBlinking, ENV_Pitman_Reset_to_Neutral, \nENV_Pitman_Tip_blinking_start ) )\n",
+          "expectedResult": true,
+          "selected": true
+        },
+        {
+          "type": "LTL",
+          "id": "LTL_HAZARD",
+          "description": "The driver must always be able to activate the hazard lights.",
+          "code": "G e(ENV_Hazard_blinking)",
+          "expectedResult": true,
+          "selected": true
+        },
+        {
+          "type": "LTL",
+          "id": "LTL_PITMAN2",
+          "description": "It must always be possible to change the pitman's to Upward7 or Downward7",
           "code": "G e(ENV_Pitman_DirectionBlinking)",
+          "expectedResult": true,
+          "selected": true
+        },
+        {
+          "type": "LTL",
+          "id": "LTL_PITMAN3",
+          "description": "It must always be possible to change the pitman's position to Upward5 or Downward5",
+          "code": "G e(ENV_Pitman_Tip_blinking_start)",
           "expectedResult": true,
           "selected": true
         }
@@ -120,14 +120,49 @@
           "id": null,
           "location": "traces/PitmanController_TIME_MC_v4_Trace7.prob2trace",
           "selected": true
+        },
+        {
+          "id": "Trace_ELS1",
+          "location": "traces/Trace_ELS1.prob2trace",
+          "selected": true
+        },
+        {
+          "id": "Trace_ELS2",
+          "location": "traces/Trace_ELS2.prob2trace",
+          "selected": true
+        },
+        {
+          "id": "Trace_ELS3_1",
+          "location": "traces/Trace_ELS3_1.prob2trace",
+          "selected": true
+        },
+        {
+          "id": "Trace_ELS3_2",
+          "location": "traces/Trace_ELS3_2.prob2trace",
+          "selected": true
+        },
+        {
+          "id": "Trace_ELS3_3",
+          "location": "traces/Trace_ELS3_3.prob2trace",
+          "selected": true
+        },
+        {
+          "id": "Trace_ELS4",
+          "location": "traces/Trace_ELS4.prob2trace",
+          "selected": true
+        },
+        {
+          "id": "Trace_ELS8",
+          "location": "traces/Trace_ELS8.prob2trace",
+          "selected": true
         }
       ],
       "modelcheckingItems": [
         {
           "searchStrategy": "MIXED_BF_DF",
           "options": [
-            "FIND_DEADLOCKS",
-            "FIND_INVARIANT_VIOLATIONS"
+            "FIND_INVARIANT_VIOLATIONS",
+            "FIND_DEADLOCKS"
           ],
           "shouldExecute": true
         }
@@ -299,8 +334,8 @@
         {
           "searchStrategy": "MIXED_BF_DF",
           "options": [
-            "FIND_DEADLOCKS",
-            "FIND_INVARIANT_VIOLATIONS"
+            "FIND_INVARIANT_VIOLATIONS",
+            "FIND_DEADLOCKS"
           ],
           "shouldExecute": true
         }
@@ -327,8 +362,8 @@
         {
           "searchStrategy": "MIXED_BF_DF",
           "options": [
-            "FIND_DEADLOCKS",
-            "FIND_INVARIANT_VIOLATIONS"
+            "FIND_INVARIANT_VIOLATIONS",
+            "FIND_DEADLOCKS"
           ],
           "shouldExecute": true
         }
@@ -341,12 +376,187 @@
       "tableVisualizationItems": {}
     }
   ],
-  "requirements": [],
+  "requirements": [
+    {
+      "name": "ELS1",
+      "introducedAt": "PitmanController_TIME_MC_v4",
+      "type": "FUNCTIONAL",
+      "text": "Direction blinking left: When moving the pitman arm in position \"turn left\" , the vehicle flashes all left direction indicators (front left, exterior mirror left, rear left) synchronously with pulse ratio bright to dark 1:1 and a frequency of 1.0 Hz ± 0.1 Hz (i.e. 60 flashes per minute ± 6 flashes).",
+      "validationObligations": [
+        {
+          "machine": "PitmanController_TIME_MC_v4",
+          "expression": "Trace_ELS1"
+        }
+      ]
+    },
+    {
+      "name": "ELS2",
+      "introducedAt": "PitmanController_TIME_MC_v4",
+      "type": "FUNCTIONAL",
+      "text": "Tip-blinking left: If the driver moves the pitman arm for less than 0.5 seconds in position \"Tip-blinking left\" all left direction indicators (see Req. ELS-1) should flash for three flashing cycles.",
+      "validationObligations": [
+        {
+          "machine": "PitmanController_TIME_MC_v4",
+          "expression": "Trace_ELS2"
+        }
+      ]
+    },
+    {
+      "name": "ELS3",
+      "introducedAt": "PitmanController_TIME_MC_v4",
+      "type": "FUNCTIONAL",
+      "text": "If the driver activates the pitman arm in another direction or activates the hazard warning light switch during the three flashing cycles of the tip-blinking, the tip-blinking cycle must be stopped and the requested flashing cycle must be started (i.e. direction blinking, tip-blinking, or hazard warning light, depending on the interrupting request)",
+      "validationObligations": [
+        {
+          "machine": "PitmanController_TIME_MC_v4",
+          "expression": "Trace_ELS3_1 & Trace_ELS3_2 & Trace_ELS3_3"
+        }
+      ]
+    },
+    {
+      "name": "ELS4",
+      "introducedAt": "PitmanController_TIME_MC_v4",
+      "type": "FUNCTIONAL",
+      "text": "If the driver holds the pitman arm for more than 0.5 seconds in position \"tip-blinking left\", flashing cycles are initiated for all direction indicators on the left (see Req. ELS-1) until the pitman arm leaves the position \"tip-blinking left\".",
+      "validationObligations": [
+        {
+          "machine": "PitmanController_TIME_MC_v4",
+          "expression": "Trace_ELS4"
+        }
+      ]
+    },
+    {
+      "name": "ELS5",
+      "introducedAt": "PitmanController_TIME_MC_v4",
+      "type": "FUNCTIONAL",
+      "text": "Direction blinking right and tip-blinking right: Analogous to the left side (see Req. ELS-1 to Req. ELS-4).",
+      "validationObligations": []
+    },
+    {
+      "name": "ELS7",
+      "introducedAt": "PitmanController_TIME_MC_v4",
+      "type": "FUNCTIONAL",
+      "text": "If the driver activates the pitman arm during the three flashing cycles of tip-blinking for the same direction again, only the current flashing cycle is completed and then the new command is processed (either three flashing cycles due to tip-blinking or constant direction blinking).",
+      "validationObligations": []
+    },
+    {
+      "name": "ELS8",
+      "introducedAt": "PitmanController_TIME_MC_v4",
+      "type": "FUNCTIONAL",
+      "text": "As long as the hazard warning light switch is pressed (active), all direction indicators flash synchronously. If the ignition key is in the ignition lock, the pulse ratio is bright to dark 1:1. If the ignition key is not in the lock, the pulse ratio is 1:2.",
+      "validationObligations": [
+        {
+          "machine": "PitmanController_TIME_MC_v4",
+          "expression": "Trace_ELS8"
+        }
+      ]
+    },
+    {
+      "name": "ELS10",
+      "introducedAt": "PitmanController_TIME_MC_v4",
+      "type": "FUNCTIONAL",
+      "text": "The duration of a flashing cycle is 1 second.",
+      "validationObligations": []
+    },
+    {
+      "name": "ELS11",
+      "introducedAt": "PitmanController_TIME_MC_v4",
+      "type": "FUNCTIONAL",
+      "text": "A flashing cycle (bright to dark) must always be completed, before a new flashing cycle can occur.",
+      "validationObligations": []
+    },
+    {
+      "name": "ELS12",
+      "introducedAt": "PitmanController_TIME_MC_v4",
+      "type": "FUNCTIONAL",
+      "text": "When hazard warning is deactivated again, the pitman arm is in position “direction blinking left” or “direction blinking right” ignition is On, the direction blinking cycle should be started (see Req. ELS-1).",
+      "validationObligations": []
+    },
+    {
+      "name": "ELS13",
+      "introducedAt": "PitmanController_TIME_MC_v4",
+      "type": "FUNCTIONAL",
+      "text": "If the warning light is activated, any tip-blinking will be ignored or stopped if it was started before.",
+      "validationObligations": []
+    },
+    {
+      "name": "REQ-ENGINE",
+      "introducedAt": "PitmanController_TIME_MC_v4",
+      "type": "FUNCTIONAL",
+      "text": "The driver must always be able to turn on or turn off the engine",
+      "validationObligations": [
+        {
+          "machine": "PitmanController_TIME_MC_v4",
+          "expression": "LTL_ENGINE1 & LTL_ENGINE2"
+        }
+      ]
+    },
+    {
+      "name": "REQ-PITMAN1",
+      "introducedAt": "PitmanController_TIME_MC_v4",
+      "type": "FUNCTIONAL",
+      "text": "The driver must always be able to change the pitman controller's position",
+      "validationObligations": [
+        {
+          "machine": "PitmanController_TIME_MC_v4",
+          "expression": "LTL_PITMAN1"
+        }
+      ]
+    },
+    {
+      "name": "REQ-PITMAN2",
+      "introducedAt": "PitmanController_TIME_MC_v4",
+      "type": "FUNCTIONAL",
+      "text": "It must always be possible to change the pitman's to Upward7 or Downward7",
+      "validationObligations": [
+        {
+          "machine": "PitmanController_TIME_MC_v4",
+          "expression": "LTL_PITMAN2"
+        }
+      ]
+    },
+    {
+      "name": "REQ-PITMAN3",
+      "introducedAt": "PitmanController_TIME_MC_v4",
+      "type": "FUNCTIONAL",
+      "text": "It must always be possible to change the pitman's position to Upward5 or Downward5",
+      "validationObligations": [
+        {
+          "machine": "PitmanController_TIME_MC_v4",
+          "expression": "LTL_PITMAN3"
+        }
+      ]
+    },
+    {
+      "name": "REQ-TIME",
+      "introducedAt": "PitmanController_TIME_MC_v4",
+      "type": "FUNCTIONAL",
+      "text": "Time can always pass, either during a cycle or not",
+      "validationObligations": [
+        {
+          "machine": "PitmanController_TIME_MC_v4",
+          "expression": "LTL_TIME1 & LTL_TIME2"
+        }
+      ]
+    },
+    {
+      "name": "REQ-HAZARD",
+      "introducedAt": "PitmanController_TIME_MC_v4",
+      "type": "FUNCTIONAL",
+      "text": "The driver must always be able to activate the hazard lights.",
+      "validationObligations": [
+        {
+          "machine": "PitmanController_TIME_MC_v4",
+          "expression": "LTL_HAZARD"
+        }
+      ]
+    }
+  ],
   "preferences": [],
   "metadata": {
     "fileType": "Project",
     "formatVersion": 37,
-    "savedAt": "2023-08-23T14:30:54.890904Z",
+    "savedAt": "2023-08-24T08:41:44.095041Z",
     "creator": "User",
     "proB2KernelVersion": "4.12.2",
     "proBCliVersion": null,
