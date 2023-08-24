@@ -263,22 +263,7 @@
           "path": "Simulation_MC/PitmanController_v4_simulation.json",
           "simulationItems": [
             {
-              "id": null,
-              "type": "HYPOTHESIS_TEST",
-              "information": {
-                "SIGNIFICANCE": 0.001,
-                "PROBABILITY": 0.999999,
-                "STARTING_PREDICATE": "active_blinkers = {left_blink}",
-                "MAX_STEPS_BEFORE_PROPERTY": 0,
-                "EXECUTIONS": 10000,
-                "PREDICATE": "blinkLeft = 100",
-                "ENDING_TIME": 100,
-                "HYPOTHESIS_CHECKING_TYPE": "LEFT_TAILED",
-                "CHECKING_TYPE": "PREDICATE_EVENTUALLY"
-              }
-            },
-            {
-              "id": null,
+              "id": "SIM_ELS_1",
               "type": "HYPOTHESIS_TEST",
               "information": {
                 "SIGNIFICANCE": 0.001,
@@ -293,27 +278,7 @@
               }
             },
             {
-              "id": null,
-              "type": "MONTE_CARLO_SIMULATION",
-              "information": {
-                "ENDING_PREDICATE": "blinkLeft = 100",
-                "STARTING_PREDICATE": "active_blinkers = {left_blink}",
-                "MAX_STEPS_BEFORE_PROPERTY": 0,
-                "EXECUTIONS": 2
-              }
-            },
-            {
-              "id": null,
-              "type": "MONTE_CARLO_SIMULATION",
-              "information": {
-                "STARTING_PREDICATE": "active_blinkers = {left_blink}",
-                "MAX_STEPS_BEFORE_PROPERTY": 0,
-                "EXECUTIONS": 2,
-                "ENDING_TIME": 100
-              }
-            },
-            {
-              "id": null,
+              "id": "SIM_LIGHTS",
               "type": "HYPOTHESIS_TEST",
               "information": {
                 "ENDING_PREDICATE": "card(active_blinkers) > 0",
@@ -325,51 +290,6 @@
                 "PREDICATE": "blinkLeft = 0 & blinkRight = 0",
                 "HYPOTHESIS_CHECKING_TYPE": "LEFT_TAILED",
                 "CHECKING_TYPE": "PREDICATE_INVARIANT"
-              }
-            },
-            {
-              "id": null,
-              "type": "ESTIMATION",
-              "information": {
-                "STARTING_PREDICATE": "active_blinkers = {left_blink}",
-                "MAX_STEPS_BEFORE_PROPERTY": 0,
-                "EXECUTIONS": 10000,
-                "PREDICATE": "blinkLeft = 100",
-                "ESTIMATION_TYPE": "MEAN",
-                "ENDING_TIME": 100,
-                "DESIRED_VALUE": 0.999999,
-                "CHECKING_TYPE": "PREDICATE_EVENTUALLY",
-                "EPSILON": 0.001
-              }
-            },
-            {
-              "id": null,
-              "type": "ESTIMATION",
-              "information": {
-                "STARTING_PREDICATE": "active_blinkers = {left_blink}",
-                "MAX_STEPS_BEFORE_PROPERTY": 0,
-                "EXECUTIONS": 10000,
-                "PREDICATE": "blinkLeft = 100",
-                "ESTIMATION_TYPE": "MEAN",
-                "ENDING_TIME": 500,
-                "DESIRED_VALUE": 0.999999,
-                "CHECKING_TYPE": "PREDICATE_EVENTUALLY",
-                "EPSILON": 0.001
-              }
-            },
-            {
-              "id": null,
-              "type": "ESTIMATION",
-              "information": {
-                "ENDING_PREDICATE": "card(active_blinkers) > 0",
-                "STARTING_PREDICATE": "engineOn = TRUE",
-                "MAX_STEPS_BEFORE_PROPERTY": 0,
-                "EXECUTIONS": 10000,
-                "PREDICATE": "blinkLeft = 0 & blinkRight = 0",
-                "ESTIMATION_TYPE": "MEAN",
-                "DESIRED_VALUE": 0.999999,
-                "CHECKING_TYPE": "PREDICATE_INVARIANT",
-                "EPSILON": 0.001
               }
             }
           ]
@@ -475,7 +395,7 @@
       "validationObligations": [
         {
           "machine": "PitmanController_TIME_MC_v4",
-          "expression": "Trace_ELS1"
+          "expression": "Trace_ELS1 & SIM_ELS_1"
         }
       ]
     },
@@ -670,13 +590,25 @@
           "expression": "LTL_HAZARD"
         }
       ]
+    },
+    {
+      "name": "REQ-LIGHTS",
+      "introducedAt": "PitmanController_TIME_MC_v4",
+      "type": "FUNCTIONAL",
+      "text": "Lights never turn on until it is activated via pitman or warning lights.",
+      "validationObligations": [
+        {
+          "machine": "PitmanController_TIME_MC_v4",
+          "expression": "SIM_LIGHTS"
+        }
+      ]
     }
   ],
   "preferences": [],
   "metadata": {
     "fileType": "Project",
     "formatVersion": 37,
-    "savedAt": "2023-08-24T10:05:50.010018Z",
+    "savedAt": "2023-08-24T10:18:05.665138Z",
     "creator": "User",
     "proB2KernelVersion": "4.12.2",
     "proBCliVersion": null,
